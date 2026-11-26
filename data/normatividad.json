@@ -1,1 +1,327 @@
-
+[
+  {
+    "id": "D1-01",
+    "palabra_clave": "Datos Personales",
+    "norma_numeral": "Ley 1581 de 2012 - Art. 3 (Definiciones) y Art. 4 (Principios).",
+    "objetivo_control": "Garantizar que la recolección y uso de información vinculada a personas naturales sea lícita, veraz, transparente y segura.",
+    "evidencia_esperada": [
+      "Inventario oficial de bases de datos personales activas.",
+      "Manual interno de políticas de tratamiento de la información.",
+      "Certificado de registro en el RNBD de la SIC."
+    ],
+    "prueba_tecnica": "Inspección del inventario de bases de datos (SQL/NoSQL) de la organización y cruce con los reportes oficiales subidos a la plataforma de la SIC.",
+    "riesgo_asociado": "Sanciones administrativas, multas por parte de la SIC y daño a la reputación de la entidad por tratamiento indebido."
+  },
+  {
+    "id": "D1-02",
+    "palabra_clave": "Datos Sensibles",
+    "norma_numeral": "Ley 1581 de 2012 - Artículos 5 y 6 (Tratamiento de datos sensibles).",
+    "objetivo_control": "Restringir y proteger estrictamente el tratamiento de información que afecte la intimidad del titular o pueda generar discriminación.",
+    "evidencia_esperada": [
+      "Autorizaciones explícitas, previas y documentadas de los titulares.",
+      "Políticas de retención y eliminación segura de la información.",
+      "Configuración de algoritmos de cifrado o enmascaramiento en tablas de BD."
+    ],
+    "prueba_tecnica": "Inspección de la arquitectura de la base de datos para validar métodos de cifrado (ej. AES-256) e indagación sobre roles de acceso a estas tablas.",
+    "riesgo_asociado": "Sanciones económicas severas, demandas legales por vulneración de derechos fundamentales y pérdida crítica de confianza."
+  },
+  {
+    "id": "D1-03",
+    "palabra_clave": "Autorización de Tratamiento",
+    "norma_numeral": "Ley 1581 de 2012 - Art. 9 y Decreto 1377 de 2013 - Art. 7.",
+    "objetivo_control": "Asegurar que todo dato personal sea tratado únicamente con el consentimiento previo, expreso e informado del titular.",
+    "evidencia_esperada": [
+      "Logs del sistema que registren la aceptación de términos (timestamps, IP).",
+      "Formatos físicos o digitales firmados por los usuarios.",
+      "Mecanismos habilitados para la revocatoria del consentimiento."
+    ],
+    "prueba_tecnica": "Re-ejecución del proceso de registro de un usuario en el sistema para verificar que el flujo exija y registre correctamente la autorización antes del guardado.",
+    "riesgo_asociado": "Nulidad legal de la base de datos recopilada, imposibilidad de realizar campañas comerciales y multas regulatorias."
+  },
+  {
+    "id": "D1-04",
+    "palabra_clave": "Aviso de Privacidad",
+    "norma_numeral": "Decreto 1377 de 2013 - Art. 14 y 15.",
+    "objetivo_control": "Informar al titular de manera clara y accesible sobre las políticas de tratamiento y la finalidad de la recolección de sus datos.",
+    "evidencia_esperada": [
+      "Capturas de pantalla de la publicación del aviso en el portal web corporativo.",
+      "Inclusión del aviso o hipervínculo en correos electrónicos y formularios.",
+      "Trazabilidad de cambios y versiones del documento."
+    ],
+    "prueba_tecnica": "Observación directa de los canales digitales de la entidad para comprobar la accesibilidad, visibilidad y actualización del aviso de privacidad.",
+    "riesgo_asociado": "Incumplimiento normativo por falta de transparencia, derivando en quejas formales de los titulares ante la autoridad de protección de datos."
+  },
+  {
+    "id": "D1-05",
+    "palabra_clave": "Transferencia de Datos",
+    "norma_numeral": "Ley 1581 de 2012 - Art. 26 (Prohibición general y excepciones).",
+    "objetivo_control": "Prevenir el envío de datos personales a países que no proporcionen niveles adecuados de protección de datos, salvo excepciones legales.",
+    "evidencia_esperada": [
+      "Contratos de transmisión/transferencia internacional de datos.",
+      "Declaraciones de conformidad expedidas por la SIC (si aplica).",
+      "Diagramas de red que documenten flujos de datos hacia servidores en el exterior (ej. AWS, Azure)."
+    ],
+    "prueba_tecnica": "Inspección documental de los acuerdos de nivel de servicio (SLA) de proveedores Cloud extranjeros y revisión de las cláusulas de confidencialidad.",
+    "riesgo_asociado": "Exposición de datos a jurisdicciones sin garantías legales y bloqueo de flujos internacionales de información por orden de la SIC."
+  },
+  {
+    "id": "D2-01",
+    "palabra_clave": "Acceso Abusivo",
+    "norma_numeral": "Ley 1273 de 2009 - Art. 269A (Acceso abusivo a un sistema informático).",
+    "objetivo_control": "Prevenir, detectar y registrar cualquier ingreso no autorizado a la infraestructura tecnológica o sistemas de información.",
+    "evidencia_esperada": [
+      "Políticas de control de acceso y contraseñas seguras.",
+      "Registros (logs) de autenticación de Firewall, VPN y Directorio Activo.",
+      "Reportes de auditoría de herramientas SIEM."
+    ],
+    "prueba_tecnica": "Análisis de logs del sistema operativo y aplicaciones para identificar intentos fallidos de inicio de sesión o accesos fuera de horario laboral.",
+    "riesgo_asociado": "Compromiso total de la confidencialidad de la información y materialización del delito penal con responsabilidad para la organización."
+  },
+  {
+    "id": "D2-02",
+    "palabra_clave": "Daño Informático",
+    "norma_numeral": "Ley 1273 de 2009 - Art. 269D (Daño informático).",
+    "objetivo_control": "Asegurar la integridad y disponibilidad de los datos frente a destrucción, alteración o borrado malintencionado.",
+    "evidencia_esperada": [
+      "Esquema de copias de seguridad (Backups) automatizadas y aisladas.",
+      "Controles de prevención de pérdida de datos (DLP).",
+      "Actas de pruebas de restauración de copias de seguridad."
+    ],
+    "prueba_tecnica": "Re-ejecución de un procedimiento de recuperación de datos (Restore) a partir de una copia de seguridad reciente en un entorno de pruebas.",
+    "riesgo_asociado": "Pérdida irreversible de información crítica, parálisis de la operación del negocio y afectación grave a la continuidad."
+  },
+  {
+    "id": "D2-03",
+    "palabra_clave": "Interceptación de Datos",
+    "norma_numeral": "Ley 1273 de 2009 - Art. 269C (Interceptación de datos informáticos).",
+    "objetivo_control": "Garantizar que la información transmitida a través de las redes organizacionales viaje de forma segura y no sea capturada por terceros.",
+    "evidencia_esperada": [
+      "Uso de protocolos seguros de transmisión (HTTPS, TLS 1.2+, SSH).",
+      "Configuración de túneles VPN IPsec o SSL para trabajo remoto.",
+      "Certificados SSL vigentes y validados."
+    ],
+    "prueba_tecnica": "Uso de herramientas de análisis de tráfico de red (ej. Wireshark) para verificar que las comunicaciones internas y externas viajen debidamente cifradas.",
+    "riesgo_asociado": "Fuga de credenciales, espionaje industrial corporativo y exposición pública de secretos comerciales."
+  },
+  {
+    "id": "D2-04",
+    "palabra_clave": "Suplantación Digital",
+    "norma_numeral": "Ley 1273 de 2009 - Art. 269J (Transferencia no consentida de activos) / Phishing.",
+    "objetivo_control": "Mitigar el riesgo de robo de identidad y credenciales mediante técnicas de ingeniería social o sitios web falsos.",
+    "evidencia_esperada": [
+      "Implementación de Autenticación Multifactor (MFA) en sistemas críticos.",
+      "Configuración de protocolos de seguridad de correo (SPF, DKIM, DMARC).",
+      "Registros de campañas de concientización en ciberseguridad a empleados."
+    ],
+    "prueba_tecnica": "Verificación de la configuración de registros DNS (SPF/DKIM/DMARC) para prevenir suplantación (Spoofing) del dominio institucional.",
+    "riesgo_asociado": "Fraudes financieros significativos, secuestro de cuentas ejecutivas y compromisos de la red interna por malware."
+  },
+  {
+    "id": "D2-05",
+    "palabra_clave": "Violación de Datos",
+    "norma_numeral": "Ley 1273 de 2009 - Art. 269F (Violación de datos personales).",
+    "objetivo_control": "Asegurar que los datos personales bajo custodia de la entidad no sean comercializados, filtrados ni sustraídos.",
+    "evidencia_esperada": [
+      "Restricciones de puertos USB y almacenamiento extraíble (GPO).",
+      "Controles estrictos sobre bases de datos en entornos de desarrollo.",
+      "Políticas de clasificación de la información."
+    ],
+    "prueba_tecnica": "Inspección de las políticas de grupo (GPO) en el Active Directory para corroborar el bloqueo de medios extraíbles no autorizados.",
+    "riesgo_asociado": "Sanciones penales para los responsables, multas corporativas y crisis mediática por vulneración de privacidad ciudadana."
+  },
+  {
+    "id": "D3-01",
+    "palabra_clave": "Firma Digital",
+    "norma_numeral": "Ley 527 de 1999 - Art. 28 (Atributos jurídicos).",
+    "objetivo_control": "Garantizar el no repudio y la integridad técnica de los documentos electrónicos vinculantes emitidos por la entidad.",
+    "evidencia_esperada": [
+      "Certificados digitales emitidos por Entidades de Certificación Cerradas o Abiertas acreditadas (ONAC).",
+      "Repositorio seguro de claves criptográficas (HSM).",
+      "Logs de estampado cronológico (Time Stamping)."
+    ],
+    "prueba_tecnica": "Validación criptográfica de una muestra de firmas digitales en documentos emitidos para comprobar la vigencia de la clave pública y el hash de integridad.",
+    "riesgo_asociado": "Desconocimiento jurídico de contratos electrónicos y posibilidad de alteración fraudulenta de documentos sin rastro."
+  },
+  {
+    "id": "D3-02",
+    "palabra_clave": "Firma Electrónica",
+    "norma_numeral": "Decreto 2364 de 2012 (Reglamentario del Art. 7 Ley 527).",
+    "objetivo_control": "Asegurar que los métodos de firma electrónica sean confiables y apropiados para los fines del documento suscrito.",
+    "evidencia_esperada": [
+      "Acuerdos de adopción de firma electrónica entre las partes.",
+      "Registros de validación de identidad previos a la emisión de la firma (ej. OTP, biometría).",
+      "Trazabilidad de auditoría de la plataforma de firma."
+    ],
+    "prueba_tecnica": "Inspección de la arquitectura de la solución de firma electrónica para validar cómo se asocia inequívocamente la identidad del firmante con el documento.",
+    "riesgo_asociado": "Invalidez probatoria en procesos judiciales por falta de robustez técnica para demostrar la identidad del firmante."
+  },
+  {
+    "id": "D3-03",
+    "palabra_clave": "Mensaje de Datos",
+    "norma_numeral": "Ley 527 de 1999 - Art. 2 y Art. 10 (Admisibilidad probatoria).",
+    "objetivo_control": "Preservar las condiciones de autenticidad, disponibilidad e inalterabilidad de los mensajes de datos para su validez legal.",
+    "evidencia_esperada": [
+      "Políticas de archivado electrónico y gestión documental.",
+      "Implementación de bóvedas de datos (WORM - Write Once Read Many).",
+      "Procedimientos de cadena de custodia digital."
+    ],
+    "prueba_tecnica": "Indagación y revisión de las soluciones de almacenamiento para confirmar que los mensajes de datos no pueden ser modificados tras su recepción/emisión.",
+    "riesgo_asociado": "Incapacidad para aportar correos o logs como prueba legal válida ante un tribunal debido a dudas sobre su inalterabilidad."
+  },
+  {
+    "id": "D3-04",
+    "palabra_clave": "Comercio Electrónico",
+    "norma_numeral": "Estatuto del Consumidor (Ley 1480 de 2011) - Art. 50.",
+    "objetivo_control": "Asegurar que las transacciones y vitrinas digitales cumplan con los requisitos de seguridad y transparencia hacia el consumidor.",
+    "evidencia_esperada": [
+      "Términos y condiciones visibles antes del pago.",
+      "Uso de pasarelas de pago certificadas bajo estándar PCI DSS.",
+      "Mecanismos habilitados para el ejercicio del derecho de retracto."
+    ],
+    "prueba_tecnica": "Observación y recorrido de validación (Black box) en el portal de e-commerce simulando una compra para constatar visibilidad normativa y cifrado (HTTPS).",
+    "riesgo_asociado": "Bloqueo de la plataforma de ventas por parte de la SIC y fraude transaccional con tarjetas de crédito de clientes."
+  },
+  {
+    "id": "D3-05",
+    "palabra_clave": "Facturación Electrónica",
+    "norma_numeral": "Estatuto Tributario - Art. 616-1 y Resolución DIAN 000042 de 2020.",
+    "objetivo_control": "Garantizar la integridad, autenticidad y formato técnico estándar (XML) de los documentos fiscales emitidos a la DIAN.",
+    "evidencia_esperada": [
+      "Repositorio de archivos XML generados con firma digital válida y CUFE/CUDE.",
+      "Logs de transmisión a la DIAN y recepción del acuse de validación (ApplicationResponse).",
+      "Certificados digitales vigentes instalados."
+    ],
+    "prueba_tecnica": "Extracción de una muestra de archivos XML generados por el ERP para validar la estructura frente al anexo técnico de la DIAN y la firma electrónica.",
+    "riesgo_asociado": "Rechazo de comprobantes fiscales, multas tributarias y parálisis comercial por imposibilidad de facturar."
+  },
+  {
+    "id": "D4-01",
+    "palabra_clave": "Derechos de Autor",
+    "norma_numeral": "Ley 23 de 1982 y Ley 44 de 1993 (Propiedad Intelectual).",
+    "objetivo_control": "Asegurar que todo el software utilizado, desarrollado o adquirido por la organización respete la titularidad y derechos patrimoniales.",
+    "evidencia_esperada": [
+      "Inventario centralizado de software instalado en estaciones de trabajo.",
+      "Registros de obras lógicas de software propio ante la DNDA (Dirección Nacional de Derecho de Autor).",
+      "Políticas de uso aceptable de activos de TI."
+    ],
+    "prueba_tecnica": "Ejecución de scripts de recolección de software en estaciones (ej. SCCM) para cruzar el software instalado contra las compras institucionales autorizadas.",
+    "riesgo_asociado": "Demandas millonarias por infracción de derechos de autor y daños graves a la imagen institucional."
+  },
+  {
+    "id": "D4-02",
+    "palabra_clave": "Licenciamiento",
+    "norma_numeral": "Ley 603 de 2000 (Reporte en el informe de gestión).",
+    "objetivo_control": "Verificar que el uso de programas de ordenador esté amparado por licencias vigentes, legales y suficientes según la cantidad de usuarios.",
+    "evidencia_esperada": [
+      "Certificados físicos o digitales de licenciamiento OEM, Retail o por Volumen.",
+      "Facturas de compra de software asociadas a activos específicos.",
+      "Declaración de cumplimiento sobre derechos de autor en el informe anual."
+    ],
+    "prueba_tecnica": "Inspección documental conciliando las facturas de adquisición y el portal VLSC (Volume Licensing Service Center) vs. la cantidad de equipos en la red.",
+    "riesgo_asociado": "Requerimientos y auditorías sorpresa por parte de la DIAN o fabricantes (BSA), resultando en multas por evasión de licenciamiento."
+  },
+  {
+    "id": "D4-03",
+    "palabra_clave": "Código Fuente",
+    "norma_numeral": "Ley 23 de 1982 - Art. 4 (Obras protegidas).",
+    "objetivo_control": "Proteger el código fuente de aplicativos in-house como secreto comercial y garantizar su propiedad en desarrollos a medida.",
+    "evidencia_esperada": [
+      "Contratos de desarrollo con cláusulas explícitas de cesión de derechos patrimoniales.",
+      "Controles de acceso basados en roles en el repositorio de código (ej. GitHub, GitLab).",
+      "Cláusulas de confidencialidad con desarrolladores internos."
+    ],
+    "prueba_tecnica": "Revisión de permisos de usuarios en el repositorio de control de versiones y verificación de cláusulas de cesión en una muestra de contratos de terceros.",
+    "riesgo_asociado": "Secuestro de aplicativos críticos por desarrolladores externos y fuga de propiedad intelectual clave para el negocio."
+  },
+  {
+    "id": "D4-04",
+    "palabra_clave": "Piratería de Software",
+    "norma_numeral": "Código Penal - Art. 271 (Defraudación a los derechos patrimoniales).",
+    "objetivo_control": "Prevenir la instalación y uso de software no autorizado, modificado o alterado (cracks, keygens) dentro de la infraestructura.",
+    "evidencia_esperada": [
+      "Configuraciones de antivirus/EDR bloqueando ejecutables riesgosos (Cracks).",
+      "Bloqueo de privilegios de administrador local para usuarios estándar.",
+      "Reportes del escáner de vulnerabilidades sobre parches no oficiales."
+    ],
+    "prueba_tecnica": "Inspección de las políticas del sistema (GPO) para validar que los usuarios estándar no poseen privilegios para instalar software en sus máquinas.",
+    "riesgo_asociado": "Ingreso de Ransomware o troyanos ocultos en activadores ilegales, comprometiendo toda la red corporativa."
+  },
+  {
+    "id": "D4-05",
+    "palabra_clave": "Acuerdos de Confidencialidad",
+    "norma_numeral": "Decisión 486 de 2000 (CAN) - Art. 260 (Secretos Empresariales).",
+    "objetivo_control": "Vincular legalmente a empleados, auditores y proveedores para proteger la información técnica, financiera o estratégica (NDAs).",
+    "evidencia_esperada": [
+      "Documentos NDA (Non-Disclosure Agreement) firmados antes de otorgar accesos.",
+      "Cláusulas penales específicas dentro de los contratos laborales.",
+      "Procedimientos de desvinculación (Offboarding) de personal TI."
+    ],
+    "prueba_tecnica": "Selección de una muestra de consultores TI externos activos para validar la existencia y vigencia de sus respectivos NDA en el expediente.",
+    "riesgo_asociado": "Fuga de diseños de arquitectura de TI, vulnerabilidades expuestas o pérdida de ventaja competitiva sin recurso legal."
+  },
+  {
+    "id": "D5-01",
+    "palabra_clave": "Activos Intangibles",
+    "norma_numeral": "NIC 38 - Párrafos 21 al 24 (Reconocimiento y medición).",
+    "objetivo_control": "Asegurar que el software y las licencias se capitalicen correctamente como activos intangibles y no como gastos del periodo.",
+    "evidencia_esperada": [
+      "Políticas contables institucionales sobre umbrales de capitalización de TI.",
+      "Facturas y contratos que demuestren control sobre el recurso.",
+      "Soportes técnicos que avalen la generación de beneficios económicos futuros."
+    ],
+    "prueba_tecnica": "Inspección del módulo de activos fijos e intangibles en el ERP para verificar que las grandes compras de software estén registradas en el balance general.",
+    "riesgo_asociado": "Distorsión significativa en los estados financieros, subestimando activos y alterando el margen de utilidad del ejercicio."
+  },
+  {
+    "id": "D5-02",
+    "palabra_clave": "Amortización de Software",
+    "norma_numeral": "NIC 38 - Párrafos 88 al 90 (Vida útil y método).",
+    "objetivo_control": "Garantizar que el valor del software capitalizado se distribuya sistemáticamente durante su vida útil técnica y legal estimada.",
+    "evidencia_esperada": [
+      "Memorias de cálculo o tablas de amortización en el ERP.",
+      "Estudios técnicos internos que justifiquen la vida útil asignada (ej. 3, 5 o 10 años).",
+      "Evaluaciones anuales de deterioro tecnológico."
+    ],
+    "prueba_tecnica": "Re-ejecución del cálculo de la cuota de amortización de un ERP o aplicativo core, validando que el método usado concuerde con las políticas contables.",
+    "riesgo_asociado": "Errores de presentación financiera por mantener valores en libros sobrevaluados de sistemas obsoletos."
+  },
+  {
+    "id": "D5-03",
+    "palabra_clave": "Arrendamiento de Hardware",
+    "norma_numeral": "NIIF 16 - Párrafos 9 al 12 (Identificación de un arrendamiento).",
+    "objetivo_control": "Contabilizar adecuadamente los contratos de alquiler de infraestructura (servidores, PCs) reconociendo un activo por derecho de uso y su pasivo.",
+    "evidencia_esperada": [
+      "Contratos de renting tecnológico (Hardware As a Service).",
+      "Cuadros de valoración financiera y tasas de descuento aplicadas.",
+      "Actas de entrega de los equipos físicos."
+    ],
+    "prueba_tecnica": "Indagación sobre los contratos de arrendamiento de servidores y cruce con el equipo contable para validar su reconocimiento bajo el modelo NIIF 16.",
+    "riesgo_asociado": "Pasivos ocultos y nivel de endeudamiento mal calculado, afectando la evaluación crediticia de la empresa."
+  },
+  {
+    "id": "D5-04",
+    "palabra_clave": "Costos de Desarrollo",
+    "norma_numeral": "NIC 38 - Párrafo 57 (Fase de desarrollo).",
+    "objetivo_control": "Garantizar que solo se capitalicen los costos de desarrollo de software in-house si se demuestra viabilidad técnica y financiera.",
+    "evidencia_esperada": [
+      "Documentos de diseño de arquitectura y presupuestos aprobados del proyecto.",
+      "Hojas de tiempo (Timesheets) de los desarrolladores asignados.",
+      "Estudios de factibilidad técnica."
+    ],
+    "prueba_tecnica": "Revisión documental para segregar y excluir del costo capitalizable los desembolsos de la fase de investigación, los cuales deben llevarse directamente al gasto.",
+    "riesgo_asociado": "Capitalización indebida de proyectos fracasados que inflan los activos de la compañía ficticiamente."
+  },
+  {
+    "id": "D5-05",
+    "palabra_clave": "Mantenimiento vs Mejora",
+    "norma_numeral": "NIC 38 - Párrafo 18 y Marco Conceptual.",
+    "objetivo_control": "Separar y registrar correctamente los gastos de soporte rutinario (Gasto) de las grandes actualizaciones que amplían la capacidad (Mejora capitalizable).",
+    "evidencia_esperada": [
+      "Soportes (Facturas/Contratos) de renovaciones de soporte técnico (ej. Microsoft Premier).",
+      "Actas de salida a producción de nuevas funcionalidades mayores.",
+      "Políticas de clasificación de rubros de TI."
+    ],
+    "prueba_tecnica": "Inspección selectiva de rubros de gasto TI en el estado de resultados para asegurar que no se oculten mejoras mayores que debieron incrementar el activo.",
+    "riesgo_asociado": "Inconsistencias contables y fiscales al cruzar los gastos deducibles de mantenimiento contra las inversiones sujetas a amortización."
+  }
+]
