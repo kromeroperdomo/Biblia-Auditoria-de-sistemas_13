@@ -19,4 +19,4 @@ Aplicación web progresiva (PWA) de consulta rápida diseñada exclusivamente pa
 ## 🚀 Instrucciones de Ejecución Local
 1. Clona este repositorio en tu máquina local:
    ```bash
-   git clone [https://github.com/tu-usuario/tu-repositorio.git](https://github.com/tu-usuario/tu-repositorio.git)
+   git clone [https://kromeroperdomo.github.io/Biblia-Auditoria-de-sistemas_13/](https://kromeroperdomo.github.io/Biblia-Auditoria-de-sistemas_13/)
