@@ -3,7 +3,7 @@
 Aplicación web progresiva (PWA) de consulta rápida diseñada exclusivamente para auditores de sistemas. La herramienta estructura y filtra de manera ágil los controles, evidencias y técnicas de auditoría del **Marco Legal Colombiano aplicable a TI y NIIF**.
 
 ## 🔗 Enlace de Despliegue (Live Demo)
-👉 [Haz clic aquí para ver la aplicación en vivo](https://tu-usuario.github.io/tu-repositorio)
+👉 [Haz clic aquí para ver la aplicación en vivo](https://https://github.com/kromeroperdomo)
 
 ## 🎯 Alcance y Funcionalidades
 *   **Índice Interactivo:** Panel de consulta con 25 palabras clave estratégicas divididas en 5 dominios (Privacidad, Delitos Informáticos, Comercio Electrónico, Propiedad Intelectual y NIIF).
