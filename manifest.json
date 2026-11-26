@@ -1,1 +1,16 @@
-
+{
+  "name": "Biblia de Auditoría de Sistemas",
+  "short_name": "Auditoría TI",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0B132B",
+  "theme_color": "#D4AF37",
+  "description": "Consulta rápida de Marco Legal Colombiano y NIIF para auditores",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/1006/1006541.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
